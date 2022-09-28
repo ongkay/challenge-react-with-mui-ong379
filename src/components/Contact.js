@@ -1,13 +1,24 @@
-// Terima props lalu tampilkan dalam Contact component
-// Contact component dapat berupa MUI ListItem
-// https://mui.com/material-ui/react-list/#folder-list
-import React from 'react';
+import React from 'react'
+import { Typography, Divider, List, Avatar, ListItemAvatar, ListItemText, ListItem } from '@mui/material'
 
-// Kalian bisa membuat CSS sendiri di src/components/Contact.css
-// atau langsung tambahkan dengan sx={{}}
 const Contact = ({ data }) => {
-    // Contact berisi foto, nama, telepon, dan email
-    return (<></>);
-};
+   return (
+      <>
+         <List sx={{ width: '100%', maxWidth: 550, bgcolor: 'cyan' }}>
+            <ListItem>
+               <ListItemAvatar>
+                  <Avatar alt="img" src={data.photo} sx={{ width: 55, height: 55, marginRight: 2 }} />
+               </ListItemAvatar>
+               <ListItemText>
+                  <Typography color="text.primary">{data.name}</Typography>
+                  <Typography color="text.secondary">{data.phone}</Typography>
+                  <Typography color="text.secondary">{data.email}</Typography>
+               </ListItemText>
+            </ListItem>
+            <Divider variant="inset" component="li" />
+         </List>
+      </>
+   )
+}
 
-export default Contact;
+export default Contact
